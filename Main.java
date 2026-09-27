@@ -4,41 +4,50 @@ public class Main {
   public static void main(String[] args) {
 
     Scanner input = new Scanner(System.in);
+    char again;
 
-    System.out.print("Enter first number: ");
-    double num1 = input.nextDouble();
+    do {
+      System.out.print("Enter first number: ");
+      double num1 = input.nextDouble();
 
-    System.out.print("Enter operator (+, -, *, /): ");
-    char operator = input.next().charAt(0);
+      System.out.print("Enter operator (+, -, *, /): ");
+      char operator = input.next().charAt(0);
 
-    System.out.print("Enter second number: ");
-    double num2 = input.nextDouble();
+      System.out.print("Enter second number: ");
+      double num2 = input.nextDouble();
 
-    switch (operator) {
+      switch (operator) {
 
-      case '+':
-        System.out.println("Result: " + (num1 + num2));
-        break;
+        case '+':
+          System.out.println("Result: " + (num1 + num2));
+          break;
 
-      case '-':
-        System.out.println("Result: " + (num1 - num2));
-        break;
+        case '-':
+          System.out.println("Result: " + (num1 - num2));
+          break;
 
-      case '*':
-        System.out.println("Result: " + (num1 * num2));
-        break;
+        case '*':
+          System.out.println("Result: " + (num1 * num2));
+          break;
 
-      case '/':
-        if (num2 == 0) {
-          System.out.println("Error: Cannot divide by zero.");
-        } else {
-          System.out.println("Result: " + (num1 / num2));
-        }
-        break;
+        case '/':
+          if (num2 == 0) {
+            System.out.println("Error: Cannot divide by zero.");
+          } else {
+            System.out.println("Result: " + (num1 / num2));
+          }
+          break;
 
-      default:
-        System.out.println("Invalid operator.");
-    }
+        default:
+          System.out.println("Invalid operator.");
+      }
+
+      System.out.print("Calculate again? (y/n): ");
+      again = input.next().charAt(0);
+
+    } while (again == 'y' || again == 'Y');
+
+    System.out.println("Thank you for using the calculator!");
 
     input.close();
   }
